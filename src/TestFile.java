@@ -1,9 +1,8 @@
 public class TestFile {
 
-    public static int void(String[] args)
+    public static void main(String[] args)
     {
-        System.out.println("Hello Method Madness");
-        System.out.println(HKaurLib.isPalindrome(101));
-        System.out.println(HKaurLib.isPalindrome(723));
+        System.out.println((HKaurLib.isPalindrome("eevee");
+        System.out.println(HKaurLib.quadSolver(1.0, -1.0, 6.0));
     }
 }
