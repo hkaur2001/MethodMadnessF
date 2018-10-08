@@ -26,14 +26,36 @@ public class HKaurLib {
         return i;
     }
 
-    public static int sumUpTo(int n) {
-        int result = 0;
-        for (int x = 1; x <= n; x++) {
-            result += sumUpTo(n);
-        }
-        return result;
+    public static String sumUpTo(int integer) {
+            int sum = 0;
+            for(int i = 1;i <= integer;i++)
+            {
+                sum = sum + i;
+            }
+            System.out.println("The sum Of the numbers from 0 to "+integer+" is " + sum);
+        return "";
     }
 
+    public static boolean isPrime(int n){
+        for (int i = 2; i <=Math.sqrt(n) ; i++) {
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+    public static String primePrinter(int num){
+        int number = 2;
+        int primeCount = 0;
+
+        while(primeCount< num) {
+            if (isPrime(number)) {
+                System.out.print(number + " ");
+                primeCount++;
+            }
+            number++;
+        }
+        return "";
+    }
 
     public static String quadSolver(Double a, Double b, Double c) {
         if (Math.pow(b, 2) - 4 * a * c > 0) {
@@ -62,5 +84,42 @@ public class HKaurLib {
             }
         }
         return null;
+    }
+
+    public static String ccipher (String character, int shift){
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        int index = alpha.indexOf(character);
+        shift = (shift + index)%26;
+        character = alpha.substring(shift, shift+1);
+        return character;
+    }
+
+
+    public static String vigCipher(String message, String key){
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        String encrypt = "";
+        key = key.toLowerCase();
+        message = message.toLowerCase();
+
+        String k_ey = "";
+        int count = 0;
+        for (int i=0; i<message.length(); i++)
+            if (!(message.substring(i, i + 1).equals(" "))) {
+                k_ey = k_ey + key.substring(count%key.length(), (count%key.length()) +1);
+                count++;
+            } else {
+                k_ey = k_ey + " ";
+            }
+        System.out.println(k_ey);
+
+        for (int i = 0; i< message.length(); i++)
+         {
+             if (!(message.substring(i,i+1).equals(" "))){
+                 encrypt = encrypt + ccipher(message.substring(i,i+1),alpha.indexOf(k_ey.substring(i,i+1)));
+             }else{
+                 encrypt = encrypt + " ";
+             }
+         }
+         return encrypt;
     }
 }
