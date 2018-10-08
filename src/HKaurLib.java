@@ -29,9 +29,9 @@ public class HKaurLib {
 
     /**
      * Finds the least common multiple of three integers
-     * @param num1 first inputted integer
-     * @param num2 second  integer
-     * @param num3 third integer
+     * @param num1 first inputted nonzero integer
+     * @param num2 second nonzero integer
+     * @param num3 third nonzero integer
      * @return the least common multiple of the three inputs
      */
     public static int leastCommonMultiple(int num1, int num2, int num3){
